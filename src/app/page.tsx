@@ -113,7 +113,7 @@ export default function LandingPage() {
             <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-to-br from-rht-violet to-rht-violet-light glow-violet-sm">
               <Shield className="h-4 w-4 text-white" />
             </div>
-            <span className="font-bold tracking-tight">CyberSense</span>
+            <span className="font-bold tracking-tight"><span className="font-normal opacity-60">Rostel</span> CyberSense</span>
           </div>
           <nav className="hidden items-center gap-6 text-sm md:flex">
             <a href="#features" className="text-muted-foreground transition-colors hover:text-foreground">
@@ -356,8 +356,7 @@ export default function LandingPage() {
         <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-4 px-4 sm:flex-row">
           <div className="flex items-center gap-2">
             <Shield className="h-5 w-5 text-rht-violet-light" />
-            <span className="font-bold">CyberSense</span>
-            <span className="text-xs text-muted-foreground">by Rostel High-Tech</span>
+            <span className="font-bold"><span className="font-normal opacity-60">Rostel</span> CyberSense</span>
           </div>
           <p className="text-xs text-muted-foreground">
             &copy; 2026 Rostel High-Tech. Tous droits réservés. Dakar, Sénégal.

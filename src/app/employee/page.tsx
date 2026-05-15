@@ -202,7 +202,7 @@ export default function EmployeeDashboardPage() {
                     </motion.div>
                     <p className="text-sm font-medium">Certificat de sensibilisation</p>
                     <p className="mt-1 text-xs text-muted-foreground">
-                      Complétez tous les modules pour obtenir votre certificat CyberSense
+                      Complétez tous les modules pour obtenir votre certificat Rostel CyberSense
                     </p>
                     <Progress value={completionPct} className="mx-auto mt-3 h-2 max-w-[200px]" />
                     <p className="mt-2 text-xs text-muted-foreground">

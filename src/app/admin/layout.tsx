@@ -57,7 +57,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
           </div>
           {!collapsed && (
             <div className="flex flex-col">
-              <span className="text-sm font-bold tracking-tight">CyberSense</span>
+              <span className="text-sm font-bold tracking-tight"><span className="font-normal opacity-60">Rostel</span> CyberSense</span>
               <span className="text-[11px] opacity-40">Super Admin</span>
             </div>
           )}
@@ -80,7 +80,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
               <p className="text-[10px] font-medium uppercase tracking-widest opacity-30">Rostel High-Tech</p>
             </div>
             <Badge className="mt-1 border-0 bg-rht-orange/10 text-rht-orange text-[10px]">
-              Plateforme CyberSense
+              Plateforme Rostel CyberSense
             </Badge>
           </div>
         )}

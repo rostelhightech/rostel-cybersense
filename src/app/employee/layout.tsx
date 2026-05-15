@@ -57,7 +57,7 @@ export default function EmployeeLayout({ children }: { children: React.ReactNode
           </div>
           {!collapsed && (
             <div className="flex flex-col">
-              <span className="text-sm font-bold tracking-tight">CyberSense</span>
+              <span className="text-sm font-bold tracking-tight"><span className="font-normal opacity-60">Rostel</span> CyberSense</span>
               <span className="text-[11px] opacity-40">Mon espace</span>
             </div>
           )}

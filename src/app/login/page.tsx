@@ -269,7 +269,7 @@ export default function LoginPage() {
         className="absolute left-6 top-6 z-20 flex items-center gap-2 text-sm text-white/40 transition-colors hover:text-white/70"
       >
         <Shield className="h-4 w-4" />
-        <span>CyberSense</span>
+        <span><span className="opacity-60">Rostel</span> CyberSense</span>
       </motion.a>
 
       {/* Login card */}
@@ -292,7 +292,7 @@ export default function LoginPage() {
               <Shield className="absolute left-1/2 top-1/2 h-6 w-6 -translate-x-1/2 -translate-y-1/2 text-rht-violet-light" />
             </motion.div>
             <h1 className="text-xl font-bold tracking-tight text-white">Welcome Back</h1>
-            <p className="mt-1 text-sm text-white/40">Accédez à votre espace CyberSense</p>
+            <p className="mt-1 text-sm text-white/40">Accédez à votre espace Rostel CyberSense</p>
           </div>
 
           <form onSubmit={handleSubmit} className="space-y-4">

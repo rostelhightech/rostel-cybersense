@@ -38,7 +38,7 @@ const stepsByRole: Record<OnboardingRole, OnboardingStep[]> = {
   "super-admin": [
     {
       icon: Crown,
-      title: "Bienvenue sur CyberSense",
+      title: "Bienvenue sur Rostel CyberSense",
       description: "En tant que Super Admin Rostel High-Tech, vous avez une vue complète sur toutes les organisations clientes de la plateforme.",
       features: [
         "Tableau de bord global de la plateforme",
@@ -75,7 +75,7 @@ const stepsByRole: Record<OnboardingRole, OnboardingStep[]> = {
     {
       icon: Rocket,
       title: "Vous êtes prêt !",
-      description: "Votre tableau de bord Super Admin est configuré. Explorez la plateforme et commencez à piloter CyberSense.",
+      description: "Votre tableau de bord Super Admin est configuré. Explorez la plateforme et commencez à piloter Rostel CyberSense.",
       features: [
         "Consultez le MRR et les tendances",
         "Vérifiez les organisations actives",
@@ -88,7 +88,7 @@ const stepsByRole: Record<OnboardingRole, OnboardingStep[]> = {
   "admin-client": [
     {
       icon: Shield,
-      title: "Bienvenue sur CyberSense",
+      title: "Bienvenue sur Rostel CyberSense",
       description: "Votre plateforme de sensibilisation à la cybersécurité. Protégez votre organisation contre les cybermenaces humaines.",
       features: [
         "Dashboard avec score de risque global",
@@ -150,8 +150,8 @@ const stepsByRole: Record<OnboardingRole, OnboardingStep[]> = {
   employee: [
     {
       icon: UserCircle,
-      title: "Bienvenue sur CyberSense",
-      description: "Votre organisation utilise CyberSense pour renforcer la vigilance de ses équipes face aux cybermenaces.",
+      title: "Bienvenue sur Rostel CyberSense",
+      description: "Votre organisation utilise Rostel CyberSense pour renforcer la vigilance de ses équipes face aux cybermenaces.",
       features: [
         "Espace personnel dédié",
         "Score de risque individuel",
@@ -175,7 +175,7 @@ const stepsByRole: Record<OnboardingRole, OnboardingStep[]> = {
     {
       icon: Award,
       title: "Badges et certificat",
-      description: "Gagnez des badges en progressant et obtenez votre certificat de sensibilisation CyberSense.",
+      description: "Gagnez des badges en progressant et obtenez votre certificat de sensibilisation Rostel CyberSense.",
       features: [
         "Badges pour chaque étape franchie",
         "Certificat après tous les modules",
@@ -263,7 +263,7 @@ export function Onboarding({
             <div className={`flex h-8 w-8 items-center justify-center rounded-lg ${theme.buttonBg}`}>
               <Shield className="h-4 w-4 text-white" />
             </div>
-            <span className="text-sm font-bold">CyberSense</span>
+            <span className="text-sm font-bold">Rostel CyberSense</span>
           </div>
           <button
             onClick={onComplete}

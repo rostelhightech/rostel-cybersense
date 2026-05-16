@@ -125,9 +125,9 @@ export default function LandingPage() {
             <a href="#pricing" className="text-muted-foreground transition-colors hover:text-foreground">
               Tarifs
             </a>
-            <a href="https://www.rostelhightech.com" target="_blank" rel="noopener noreferrer" className="text-muted-foreground transition-colors hover:text-foreground">
-              Rostel High-Tech
-            </a>
+            <Link href="/about" className="text-muted-foreground transition-colors hover:text-foreground">
+              À propos
+            </Link>
           </nav>
           <div className="flex items-center gap-3">
             <Link href="/login">
@@ -471,9 +471,14 @@ export default function LandingPage() {
             <Shield className="h-5 w-5 text-rht-violet-light" />
             <span className="font-bold"><span className="font-normal opacity-60">Rostel</span> CyberSense</span>
           </div>
-          <p className="text-xs text-muted-foreground">
-            &copy; 2026 Rostel High-Tech. Tous droits réservés. Dakar, Sénégal.
-          </p>
+          <div className="flex items-center gap-4">
+            <Link href="/about" className="text-xs text-muted-foreground hover:text-foreground transition-colors">
+              À propos
+            </Link>
+            <p className="text-xs text-muted-foreground">
+              &copy; 2026 Rostel High-Tech. Tous droits réservés.
+            </p>
+          </div>
           <a
             href="https://www.rostelhightech.com"
             target="_blank"

@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import { Header } from "@/components/layout/header";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -17,6 +18,7 @@ import {
   GraduationCap,
   Mail,
   Calendar,
+  ArrowUpRight,
 } from "lucide-react";
 import { organizations } from "@/lib/mock-data";
 import { FadeIn, StaggerContainer, StaggerItem, GlowCard } from "@/components/motion";
@@ -156,6 +158,11 @@ export default function OrganizationsPage() {
                         {org.mrr > 0 && (
                           <span className="text-lg font-bold text-rht-orange">{formatCFA(org.mrr)}<span className="text-xs font-normal text-muted-foreground">/mois</span></span>
                         )}
+                        <Link href={`/admin/organizations/${org.id}`}>
+                          <Button variant="ghost" size="sm" className="text-xs">
+                            Voir <ArrowUpRight className="ml-1 h-3 w-3" />
+                          </Button>
+                        </Link>
                       </div>
                     </div>
 

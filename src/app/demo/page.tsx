@@ -33,6 +33,8 @@ const demoFeatures = [
 export default function DemoPage() {
   const { locale } = useTranslation();
   const [sent, setSent] = useState(false);
+  const [sending, setSending] = useState(false);
+  const [error, setError] = useState("");
 
   return (
     <div className="min-h-screen bg-background">
@@ -149,7 +151,34 @@ export default function DemoPage() {
                     </Link>
                   </div>
                 ) : (
-                  <form onSubmit={(e) => { e.preventDefault(); setSent(true); }} className="space-y-5">
+                  <form onSubmit={async (e) => {
+                    e.preventDefault();
+                    setSending(true);
+                    setError("");
+                    const form = e.currentTarget;
+                    const data = {
+                      name: (form.querySelector("#demo-name") as HTMLInputElement).value,
+                      email: (form.querySelector("#demo-email") as HTMLInputElement).value,
+                      organization: (form.querySelector("#demo-company") as HTMLInputElement).value,
+                      phone: (form.querySelector("#demo-phone") as HTMLInputElement).value,
+                      teamSize: (form.querySelector("#demo-size") as HTMLSelectElement).value,
+                      country: (form.querySelector("#demo-country") as HTMLInputElement).value,
+                      message: (form.querySelector("#demo-needs") as HTMLTextAreaElement).value,
+                    };
+                    try {
+                      const res = await fetch("/api/demo", {
+                        method: "POST",
+                        headers: { "Content-Type": "application/json" },
+                        body: JSON.stringify(data),
+                      });
+                      if (!res.ok) throw new Error();
+                      setSent(true);
+                    } catch {
+                      setError(locale === "en" ? "Failed to send. Please try again." : "Erreur d'envoi. Veuillez réessayer.");
+                    } finally {
+                      setSending(false);
+                    }
+                  }} className="space-y-5">
                     <h3 className="text-lg font-semibold">
                       {locale === "en" ? "Book your demo" : "Réservez votre démo"}
                     </h3>
@@ -207,13 +236,19 @@ export default function DemoPage() {
                       />
                     </div>
 
+                    {error && (
+                      <p className="text-sm text-red-500">{error}</p>
+                    )}
                     <Button
                       type="submit"
-                      className="w-full bg-gradient-to-r from-rht-violet to-rht-violet-light text-white hover:opacity-90"
+                      disabled={sending}
+                      className="w-full bg-gradient-to-r from-rht-violet to-rht-violet-light text-white hover:opacity-90 disabled:opacity-50"
                       size="lg"
                     >
                       <Send className="mr-2 h-4 w-4" />
-                      {locale === "en" ? "Request my demo" : "Demander ma démo"}
+                      {sending
+                        ? (locale === "en" ? "Sending..." : "Envoi en cours...")
+                        : (locale === "en" ? "Request my demo" : "Demander ma démo")}
                     </Button>
 
                     <p className="text-center text-[11px] text-muted-foreground">

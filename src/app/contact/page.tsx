@@ -24,6 +24,8 @@ import {
 export default function ContactPage() {
   const { locale } = useTranslation();
   const [sent, setSent] = useState(false);
+  const [sending, setSending] = useState(false);
+  const [error, setError] = useState("");
 
   const contactInfo = [
     {
@@ -169,7 +171,31 @@ export default function ContactPage() {
                     </p>
                   </div>
                 ) : (
-                  <form onSubmit={(e) => { e.preventDefault(); setSent(true); }} className="space-y-5">
+                  <form onSubmit={async (e) => {
+                    e.preventDefault();
+                    setSending(true);
+                    setError("");
+                    const form = e.currentTarget;
+                    const data = {
+                      name: (form.querySelector("#contact-name") as HTMLInputElement).value,
+                      email: (form.querySelector("#contact-email") as HTMLInputElement).value,
+                      subject: (form.querySelector("#contact-subject") as HTMLSelectElement).value,
+                      message: (form.querySelector("#contact-message") as HTMLTextAreaElement).value,
+                    };
+                    try {
+                      const res = await fetch("/api/contact", {
+                        method: "POST",
+                        headers: { "Content-Type": "application/json" },
+                        body: JSON.stringify(data),
+                      });
+                      if (!res.ok) throw new Error();
+                      setSent(true);
+                    } catch {
+                      setError(locale === "en" ? "Failed to send. Please try again." : "Erreur d'envoi. Veuillez réessayer.");
+                    } finally {
+                      setSending(false);
+                    }
+                  }} className="space-y-5">
                     <div className="grid gap-4 sm:grid-cols-2">
                       <div className="space-y-2">
                         <Label htmlFor="contact-name">
@@ -227,12 +253,18 @@ export default function ContactPage() {
                           : "Comment pouvons-nous vous aider ? Parlez-nous de la taille de votre équipe, vos défis et objectifs..."}
                       />
                     </div>
+                    {error && (
+                      <p className="text-sm text-red-500">{error}</p>
+                    )}
                     <Button
                       type="submit"
-                      className="w-full bg-gradient-to-r from-rht-violet to-rht-violet-light text-white hover:opacity-90"
+                      disabled={sending}
+                      className="w-full bg-gradient-to-r from-rht-violet to-rht-violet-light text-white hover:opacity-90 disabled:opacity-50"
                     >
                       <Send className="mr-2 h-4 w-4" />
-                      {locale === "en" ? "Send message" : "Envoyer le message"}
+                      {sending
+                        ? (locale === "en" ? "Sending..." : "Envoi en cours...")
+                        : (locale === "en" ? "Send message" : "Envoyer le message")}
                     </Button>
                   </form>
                 )}

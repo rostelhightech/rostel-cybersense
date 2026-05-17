@@ -127,7 +127,8 @@ export default function LandingPage() {
       {/* Hero */}
       <section className="relative overflow-hidden border-b">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_30%_20%,rgba(156,30,153,0.08),transparent_55%),radial-gradient(ellipse_at_70%_80%,rgba(250,153,14,0.05),transparent_50%)]" />
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_50%,rgba(156,30,153,0.03)_1px,transparent_1px),radial-gradient(circle_at_80%_20%,rgba(250,153,14,0.03)_1px,transparent_1px)] bg-[length:60px_60px]" />
+        <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:80px_80px]" />
+        <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.015)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.015)_1px,transparent_1px)] bg-[size:20px_20px]" />
         <div className="relative mx-auto max-w-6xl px-4 py-24 text-center lg:py-32">
           <FadeIn delay={0}>
             <Badge className="mb-6 border-border bg-rht-violet/10 text-rht-violet-light dark:border-rht-violet/20">
@@ -149,7 +150,7 @@ export default function LandingPage() {
           </FadeIn>
           <FadeIn delay={0.3}>
             <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
-              <Link href="/login">
+              <Link href="/demo">
                 <motion.div whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.98 }}>
                   <Button size="lg" className="h-12 rounded-full bg-gradient-to-r from-rht-orange to-rht-orange-light px-8 text-base font-semibold text-white glow-orange hover:opacity-90">
                     {t("landing.hero.cta")}
@@ -584,7 +585,27 @@ export default function LandingPage() {
             </div>
           ) : (
             <form
-              onSubmit={(e) => { e.preventDefault(); setDevisSent(true); }}
+              onSubmit={async (e) => {
+                e.preventDefault();
+                const form = e.currentTarget;
+                const data = {
+                  name: (form.querySelector("#devis-name") as HTMLInputElement).value,
+                  email: (form.querySelector("#devis-email") as HTMLInputElement).value,
+                  organization: (form.querySelector("#devis-org") as HTMLInputElement).value,
+                  phone: (form.querySelector("#devis-phone") as HTMLInputElement).value,
+                  teamSize: (form.querySelector("#devis-employees") as HTMLInputElement).value + " employees",
+                  country: (form.querySelector("#devis-country") as HTMLInputElement).value,
+                  message: `[Plan: ${selectedPlan}] ${(form.querySelector("#devis-message") as HTMLTextAreaElement).value}`,
+                };
+                try {
+                  await fetch("/api/demo", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify(data),
+                  });
+                } catch { /* fallback: still show success */ }
+                setDevisSent(true);
+              }}
               className="space-y-4"
             >
               <div className="grid gap-4 sm:grid-cols-2">

@@ -410,6 +410,67 @@ export default function LandingPage() {
         </div>
       </section>
 
+      {/* FAQ */}
+      <section className="border-t py-20" id="faq">
+        <div className="mx-auto max-w-3xl px-4">
+          <FadeIn>
+            <h2 className="text-center text-2xl font-bold tracking-tight sm:text-3xl">
+              {locale === "en" ? "Frequently Asked Questions" : "Questions fréquentes"}
+            </h2>
+          </FadeIn>
+          <div className="mt-10 space-y-4">
+            {[
+              {
+                q: locale === "en" ? "How long does deployment take?" : "Combien de temps pour le déploiement ?",
+                a: locale === "en"
+                  ? "CyberSense can be operational within 48 hours. No technical work is required on your end — we handle everything."
+                  : "CyberSense peut être opérationnel en 48 heures. Aucun travail technique n'est requis de votre côté — nous gérons tout.",
+              },
+              {
+                q: locale === "en" ? "Do you offer a free trial?" : "Offrez-vous un essai gratuit ?",
+                a: locale === "en"
+                  ? "Yes! We offer a 14-day free pilot with up to 20 employees. No credit card required."
+                  : "Oui ! Nous offrons un pilote gratuit de 14 jours avec jusqu'à 20 employés. Pas de carte bancaire requise.",
+              },
+              {
+                q: locale === "en" ? "Is the content adapted for Africa?" : "Le contenu est-il adapté à l'Afrique ?",
+                a: locale === "en"
+                  ? "Absolutely. Our phishing templates include Mobile Money scams, local banking scenarios, and context-specific social engineering attacks."
+                  : "Absolument. Nos templates de phishing incluent les arnaques Mobile Money, les scénarios bancaires locaux et les attaques d'ingénierie sociale contextualisées.",
+              },
+              {
+                q: locale === "en" ? "Which languages are supported?" : "Quelles langues sont supportées ?",
+                a: locale === "en"
+                  ? "The platform is fully available in French and English. More languages are coming soon."
+                  : "La plateforme est entièrement disponible en français et anglais. D'autres langues arrivent bientôt.",
+              },
+              {
+                q: locale === "en" ? "How do phishing simulations work?" : "Comment fonctionnent les simulations de phishing ?",
+                a: locale === "en"
+                  ? "You choose templates, target departments, and schedule campaigns. Employees receive realistic simulated emails. Those who click are instantly redirected to a training page. You track results in real-time."
+                  : "Vous choisissez les templates, ciblez les départements et planifiez les campagnes. Les employés reçoivent des emails simulés réalistes. Ceux qui cliquent sont redirigés vers une page de formation. Vous suivez les résultats en temps réel.",
+              },
+              {
+                q: locale === "en" ? "Is employee data secure?" : "Les données des employés sont-elles sécurisées ?",
+                a: locale === "en"
+                  ? "Yes. All data is encrypted (TLS 1.3 + AES-256), hosted on SOC 2 compliant infrastructure, with role-based access controls."
+                  : "Oui. Toutes les données sont chiffrées (TLS 1.3 + AES-256), hébergées sur une infrastructure conforme SOC 2, avec des contrôles d'accès basés sur les rôles.",
+              },
+            ].map((faq, i) => (
+              <FadeIn key={i} delay={i * 0.05}>
+                <details className="group rounded-xl border p-4 transition-colors hover:bg-accent/30 [&[open]]:bg-accent/30">
+                  <summary className="flex cursor-pointer items-center justify-between text-sm font-medium">
+                    {faq.q}
+                    <span className="ml-4 text-muted-foreground transition-transform group-open:rotate-45">+</span>
+                  </summary>
+                  <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{faq.a}</p>
+                </details>
+              </FadeIn>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* CTA */}
       <section className="relative py-20">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_50%,rgba(156,30,153,0.06),transparent_60%)]" />
@@ -463,6 +524,9 @@ export default function LandingPage() {
             </Link>
             <Link href="/contact" className="text-xs text-muted-foreground hover:text-foreground transition-colors">
               Contact
+            </Link>
+            <Link href="/legal" className="text-xs text-muted-foreground hover:text-foreground transition-colors">
+              {locale === "en" ? "Legal" : "Mentions légales"}
             </Link>
             <p className="text-xs text-muted-foreground">
               &copy; 2026 Rostel High-Tech. {t("landing.footer.rights")}

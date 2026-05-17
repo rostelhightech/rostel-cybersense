@@ -24,7 +24,7 @@ test.describe("Global Navigation & Pages", () => {
   test("admin panel should be accessible", async ({ page }) => {
     await page.goto("/admin");
     await page.evaluate(() => {
-      sessionStorage.setItem("cybersense_onboarding_super-admin", "done");
+      sessionStorage.setItem("roxshield_onboarding_super-admin", "done");
     });
     await page.reload();
     await expect(page).toHaveURL("/admin");
@@ -35,7 +35,7 @@ test.describe("Global Navigation & Pages", () => {
   test("settings page should have tabs", async ({ page }) => {
     await page.goto("/dashboard/settings");
     await page.evaluate(() => {
-      sessionStorage.setItem("cybersense_onboarding_admin-client", "done");
+      sessionStorage.setItem("roxshield_onboarding_admin-client", "done");
     });
     await page.reload();
     await expect(page.getByRole("tab", { name: /organisation/i })).toBeVisible();
@@ -46,7 +46,7 @@ test.describe("Global Navigation & Pages", () => {
   test("settings page should have plan section", async ({ page }) => {
     await page.goto("/dashboard/settings");
     await page.evaluate(() => {
-      sessionStorage.setItem("cybersense_onboarding_admin-client", "done");
+      sessionStorage.setItem("roxshield_onboarding_admin-client", "done");
     });
     await page.reload();
     await expect(page.getByText("Plan Business")).toBeVisible();

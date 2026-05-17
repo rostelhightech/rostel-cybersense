@@ -44,7 +44,7 @@ export default function DemoPage() {
               <Shield className="h-4 w-4 text-white" />
             </div>
             <span className="text-sm font-bold">
-              <span className="font-normal opacity-60">Rostel</span> CyberSense
+              <span className="font-normal opacity-60">Rox</span>Shield
             </span>
           </Link>
           <Link href="/">
@@ -71,8 +71,8 @@ export default function DemoPage() {
               </Badge>
               <h1 className="text-3xl font-bold tracking-tight sm:text-4xl">
                 {locale === "en"
-                  ? "See CyberSense in action"
-                  : "Voyez CyberSense en action"}
+                  ? "See RoxShield in action"
+                  : "Voyez RoxShield en action"}
               </h1>
               <p className="mt-3 text-lg text-muted-foreground">
                 {locale === "en"

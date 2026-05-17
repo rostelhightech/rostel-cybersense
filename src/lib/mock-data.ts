@@ -1,5 +1,5 @@
 export const companyInfo = {
-  name: "Rostel CyberSense",
+  name: "RoxShield",
   tagline: "Human Security Training Platform",
   company: "Rostel High-Tech",
   currentOrg: "Safi Sénégal SARL",

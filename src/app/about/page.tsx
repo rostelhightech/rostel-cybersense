@@ -64,7 +64,7 @@ const team = [
     name: "Aminata Diallo",
     role: "Head of Product",
     initials: "AD",
-    bio: "Experte en UX et produits SaaS, elle conçoit l'expérience CyberSense.",
+    bio: "Experte en UX et produits SaaS, elle conçoit l'expérience RoxShield.",
     gradient: "from-rht-violet to-rht-violet-light",
   },
   {
@@ -86,7 +86,7 @@ const team = [
 const milestones = [
   { year: "2021", text: "Fondation de Rostel High-Tech à Dakar, Sénégal" },
   { year: "2024", text: "Enregistrement officiel et structuration de l'entreprise" },
-  { year: "2025", text: "Lancement de la R&D sur CyberSense" },
+  { year: "2025", text: "Lancement de la R&D sur RoxShield" },
   { year: "2026", text: "Lancement commercial — premiers clients en Afrique francophone" },
 ];
 
@@ -100,7 +100,7 @@ export default function AboutPage() {
             <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-to-br from-rht-violet to-rht-violet-light">
               <Shield className="h-4 w-4 text-white" />
             </div>
-            <span className="font-bold"><span className="font-normal opacity-60">Rostel</span> CyberSense</span>
+            <span className="font-bold"><span className="font-normal opacity-60">Rox</span>Shield</span>
           </Link>
           <div className="flex items-center gap-3">
             <ThemeToggle />
@@ -129,7 +129,7 @@ export default function AboutPage() {
               </span>
             </h1>
             <p className="mx-auto mt-4 max-w-xl text-muted-foreground">
-              Rostel CyberSense est né d&apos;un constat : en Afrique, 95% des cyberattaques réussies
+              RoxShield est né d&apos;un constat : en Afrique, 95% des cyberattaques réussies
               exploitent le facteur humain. Nous transformons vos employés en bouclier.
             </p>
           </FadeIn>
@@ -171,7 +171,7 @@ export default function AboutPage() {
             <Badge variant="outline" className="mb-4 border-rht-orange/30 text-rht-orange">
               Équipe
             </Badge>
-            <h2 className="text-2xl font-bold">Les personnes derrière CyberSense</h2>
+            <h2 className="text-2xl font-bold">Les personnes derrière RoxShield</h2>
             <p className="mx-auto mt-2 max-w-xl text-muted-foreground">
               Une équipe passionnée par la cybersécurité et l&apos;impact technologique en Afrique.
             </p>
@@ -268,7 +268,7 @@ export default function AboutPage() {
         <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-4 px-4 sm:flex-row">
           <div className="flex items-center gap-2">
             <Shield className="h-5 w-5 text-rht-violet-light" />
-            <span className="font-bold"><span className="font-normal opacity-60">Rostel</span> CyberSense</span>
+            <span className="font-bold"><span className="font-normal opacity-60">Rox</span>Shield</span>
           </div>
           <p className="text-xs text-muted-foreground">
             &copy; 2026 Rostel High-Tech. Tous droits réservés.

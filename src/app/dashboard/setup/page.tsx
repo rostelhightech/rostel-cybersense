@@ -79,7 +79,7 @@ export default function SetupPage() {
           </div>
           <h1 className="text-2xl font-bold">Configurez votre espace</h1>
           <p className="mt-1 text-sm text-muted-foreground">
-            Quelques étapes pour démarrer avec Rostel CyberSense
+            Quelques étapes pour démarrer avec RoxShield
           </p>
         </motion.div>
 
@@ -294,7 +294,7 @@ export default function SetupPage() {
                     </motion.div>
                     <h2 className="text-lg font-bold">Configuration terminée !</h2>
                     <p className="mt-1 text-sm text-muted-foreground">
-                      Votre espace Rostel CyberSense est prêt à utiliser
+                      Votre espace RoxShield est prêt à utiliser
                     </p>
                   </div>
 

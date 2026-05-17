@@ -62,7 +62,7 @@ export default function ContactPage() {
               <Shield className="h-4 w-4 text-white" />
             </div>
             <span className="text-sm font-bold">
-              <span className="font-normal opacity-60">Rostel</span> CyberSense
+              <span className="font-normal opacity-60">Rox</span>Shield
             </span>
           </Link>
           <Link href="/">
@@ -133,7 +133,7 @@ export default function ContactPage() {
                       : "Envoyez-nous un message et nous vous répondons dans l'heure."}
                   </p>
                   <a
-                    href="https://wa.me/22178123456?text=Bonjour, je souhaite en savoir plus sur CyberSense"
+                    href="https://wa.me/22178123456?text=Bonjour, je souhaite en savoir plus sur RoxShield"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="mt-2 inline-flex items-center gap-1 text-xs font-medium text-cyber-green hover:underline"

@@ -140,7 +140,7 @@ const dictionaries = {
     "employee.quizAvgScore": "Score quiz moyen",
     "employee.progression": "Progression globale",
     "employee.certificate": "Certificat de sensibilisation",
-    "employee.certificateDesc": "Complétez tous les modules pour obtenir votre certificat Rostel CyberSense",
+    "employee.certificateDesc": "Complétez tous les modules pour obtenir votre certificat RoxShield",
     "employee.modulesRemaining": "modules restants",
     "employee.streakMessage": "jours d'affilée",
     "employee.riskDecreasing": "Votre score de risque baisse — continuez comme ça !",
@@ -168,7 +168,7 @@ const dictionaries = {
     "landing.hero.badge": "Plateforme de Human Security Training",
     "landing.hero.title1": "Transformez vos employés en",
     "landing.hero.title2": "première ligne de défense",
-    "landing.hero.subtitle": "Rostel CyberSense aide les entreprises africaines à réduire le risque humain grâce aux simulations de phishing, micro-formations gamifiées et tableaux de bord intelligents.",
+    "landing.hero.subtitle": "RoxShield aide les entreprises africaines à réduire le risque humain grâce aux simulations de phishing, micro-formations gamifiées et tableaux de bord intelligents.",
     "landing.hero.cta": "Essayer la démo",
     "landing.hero.ctaSecondary": "Voir le dashboard",
     "landing.hero.demo": "Voir la démo",
@@ -361,7 +361,7 @@ const dictionaries = {
     "employee.quizAvgScore": "Quiz avg. score",
     "employee.progression": "Overall progress",
     "employee.certificate": "Awareness certificate",
-    "employee.certificateDesc": "Complete all modules to earn your Rostel CyberSense certificate",
+    "employee.certificateDesc": "Complete all modules to earn your RoxShield certificate",
     "employee.modulesRemaining": "modules remaining",
     "employee.streakMessage": "days in a row",
     "employee.riskDecreasing": "Your risk score is going down — keep it up!",
@@ -389,7 +389,7 @@ const dictionaries = {
     "landing.hero.badge": "Human Security Training Platform",
     "landing.hero.title1": "Turn your employees into your",
     "landing.hero.title2": "first line of defense",
-    "landing.hero.subtitle": "Rostel CyberSense helps African businesses reduce human risk through phishing simulations, gamified micro-trainings and intelligent dashboards.",
+    "landing.hero.subtitle": "RoxShield helps African businesses reduce human risk through phishing simulations, gamified micro-trainings and intelligent dashboards.",
     "landing.hero.cta": "Try the demo",
     "landing.hero.ctaSecondary": "View dashboard",
     "landing.hero.demo": "Watch demo",
@@ -462,14 +462,14 @@ const I18nContext = createContext<I18nContextType | null>(null);
 export function I18nProvider({ children }: { children: ReactNode }) {
   const [locale, setLocale] = useState<Locale>(() => {
     if (typeof window !== "undefined") {
-      return (localStorage.getItem("cybersense_locale") as Locale) || "fr";
+      return (localStorage.getItem("roxshield_locale") as Locale) || "fr";
     }
     return "fr";
   });
 
   const changeLocale = useCallback((newLocale: Locale) => {
     setLocale(newLocale);
-    localStorage.setItem("cybersense_locale", newLocale);
+    localStorage.setItem("roxshield_locale", newLocale);
   }, []);
 
   const t = useCallback(

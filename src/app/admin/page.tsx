@@ -50,13 +50,13 @@ export default function AdminDashboardPage() {
 
   return (
     <div>
-      <Header title="Super Admin — Rostel CyberSense" />
+      <Header title="Super Admin — RoxShield" />
       <div className="space-y-6 p-6">
         <FadeIn>
           <div className="flex items-center gap-3">
             <Badge className="border-0 bg-rht-orange/10 text-rht-orange">Rostel High-Tech</Badge>
             <p className="text-sm text-muted-foreground">
-              Vue globale de la plateforme Rostel CyberSense
+              Vue globale de la plateforme RoxShield
             </p>
           </div>
         </FadeIn>

@@ -12,8 +12,8 @@ const montserrat = Montserrat({
 
 export const metadata: Metadata = {
   title: {
-    default: "Rostel CyberSense — Human Security Training Platform",
-    template: "%s | Rostel CyberSense",
+    default: "RoxShield — Human Security Training Platform",
+    template: "%s | RoxShield",
   },
   description:
     "Plateforme SaaS de sensibilisation, d'entraînement et de simulation en cybersécurité humaine pour les entreprises africaines. Par Rostel High-Tech.",
@@ -25,7 +25,7 @@ export const metadata: Metadata = {
   appleWebApp: {
     capable: true,
     statusBarStyle: "black-translucent",
-    title: "CyberSense",
+    title: "RoxShield",
   },
   keywords: [
     "cybersécurité",
@@ -43,8 +43,8 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "fr_FR",
-    siteName: "Rostel CyberSense",
-    title: "Rostel CyberSense — Human Security Training Platform",
+    siteName: "RoxShield",
+    title: "RoxShield — Human Security Training Platform",
     description:
       "Formez vos équipes, simulez des attaques de phishing et suivez le score de risque humain de votre organisation.",
     images: [
@@ -52,13 +52,13 @@ export const metadata: Metadata = {
         url: "/og-image.svg",
         width: 1200,
         height: 630,
-        alt: "Rostel CyberSense — Human Security Training Platform",
+        alt: "RoxShield — Human Security Training Platform",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Rostel CyberSense",
+    title: "RoxShield",
     description:
       "Plateforme de cybersécurité humaine pour les entreprises africaines.",
     images: ["/og-image.svg"],

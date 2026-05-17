@@ -5,7 +5,7 @@ test.describe("Dashboard (Admin Client)", () => {
     // Dismiss onboarding by setting sessionStorage before navigating
     await page.goto("/dashboard");
     await page.evaluate(() => {
-      sessionStorage.setItem("cybersense_onboarding_admin-client", "done");
+      sessionStorage.setItem("roxshield_onboarding_admin-client", "done");
     });
     await page.reload();
   });

@@ -4,7 +4,7 @@ test.describe("Command Palette", () => {
   test.beforeEach(async ({ page }) => {
     await page.goto("/dashboard");
     await page.evaluate(() => {
-      sessionStorage.setItem("cybersense_onboarding_admin-client", "done");
+      sessionStorage.setItem("roxshield_onboarding_admin-client", "done");
     });
     await page.reload();
   });
@@ -32,7 +32,7 @@ test.describe("Activity Feed", () => {
   test.beforeEach(async ({ page }) => {
     await page.goto("/dashboard");
     await page.evaluate(() => {
-      sessionStorage.setItem("cybersense_onboarding_admin-client", "done");
+      sessionStorage.setItem("roxshield_onboarding_admin-client", "done");
     });
     await page.reload();
   });
@@ -51,7 +51,7 @@ test.describe("Badges Page", () => {
   test.beforeEach(async ({ page }) => {
     await page.goto("/employee/badges");
     await page.evaluate(() => {
-      sessionStorage.setItem("cybersense_onboarding_employee", "done");
+      sessionStorage.setItem("roxshield_onboarding_employee", "done");
     });
     await page.reload();
   });

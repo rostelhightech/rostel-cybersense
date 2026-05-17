@@ -99,7 +99,7 @@ export default function ReportsPage() {
 
   const handleCSV = () => {
     exportCSV({
-      filename: `cybersense-rapport-employes-${new Date().toISOString().slice(0, 10)}`,
+      filename: `roxshield-rapport-employes-${new Date().toISOString().slice(0, 10)}`,
       headers: ["Nom", "Email", "Département", "Rôle", "Score de risque", "Formations complétées", "Total formations", "Statut"],
       rows: employees.map((e) => [
         e.name,
@@ -117,7 +117,7 @@ export default function ReportsPage() {
 
   const handleDeptCSV = () => {
     exportCSV({
-      filename: `cybersense-rapport-departements-${new Date().toISOString().slice(0, 10)}`,
+      filename: `roxshield-rapport-departements-${new Date().toISOString().slice(0, 10)}`,
       headers: ["Département", "Employés", "Score de risque", "Complétion (%)"],
       rows: deptCompletion.map((d) => [
         d.name,

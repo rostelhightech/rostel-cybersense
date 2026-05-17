@@ -27,7 +27,7 @@ export function LoadingScreen() {
         className="mt-6 text-sm font-medium text-muted-foreground"
       >
         <span className="font-normal opacity-60">Rostel</span>{" "}
-        <span className="font-semibold">CyberSense</span>
+        <span className="font-semibold">RoxShield</span>
       </motion.p>
       <motion.div
         initial={{ width: 0 }}

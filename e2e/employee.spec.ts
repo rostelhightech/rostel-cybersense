@@ -4,7 +4,7 @@ test.describe("Employee Space", () => {
   test.beforeEach(async ({ page }) => {
     await page.goto("/employee");
     await page.evaluate(() => {
-      sessionStorage.setItem("cybersense_onboarding_employee", "done");
+      sessionStorage.setItem("roxshield_onboarding_employee", "done");
     });
     await page.reload();
   });

@@ -34,7 +34,7 @@ export default function NotFound() {
 
       <p className="mt-12 text-xs text-muted-foreground/40">
         <span className="font-normal opacity-60">Rostel</span>{" "}
-        <span className="font-semibold">CyberSense</span> — Plateforme de sensibilisation cyber
+        <span className="font-semibold">RoxShield</span> — Plateforme de sensibilisation cyber
       </p>
     </div>
   );

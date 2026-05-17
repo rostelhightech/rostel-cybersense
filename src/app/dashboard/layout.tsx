@@ -14,7 +14,7 @@ export default function DashboardLayout({
   const [showOnboarding, setShowOnboarding] = useState(false);
 
   useEffect(() => {
-    const key = "cybersense_onboarding_admin-client";
+    const key = "roxshield_onboarding_admin-client";
     if (!sessionStorage.getItem(key)) {
       setShowOnboarding(true);
       sessionStorage.setItem(key, "done");

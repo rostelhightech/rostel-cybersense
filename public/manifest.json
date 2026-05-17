@@ -1,6 +1,6 @@
 {
-  "name": "Rostel CyberSense",
-  "short_name": "CyberSense",
+  "name": "RoxShield",
+  "short_name": "RoxShield",
   "description": "Human Security Training Platform — Simulations de phishing, formations et dashboard de risque humain",
   "start_url": "/",
   "display": "standalone",

@@ -53,7 +53,7 @@ export function Sidebar() {
           <div className="flex h-7 w-7 items-center justify-center rounded-lg bg-gradient-to-br from-rht-violet to-rht-violet-light">
             <Shield className="h-3.5 w-3.5 text-white" />
           </div>
-          <span className="text-sm font-bold"><span className="font-normal opacity-60">Rostel</span> CyberSense</span>
+          <span className="text-sm font-bold"><span className="font-normal opacity-60">Rox</span>Shield</span>
         </div>
       </div>
 
@@ -75,7 +75,7 @@ export function Sidebar() {
           </div>
           {!collapsed && (
             <div className="flex flex-col">
-              <span className="text-sm font-bold tracking-tight"><span className="font-normal opacity-60">Rostel</span> CyberSense</span>
+              <span className="text-sm font-bold tracking-tight"><span className="font-normal opacity-60">Rox</span>Shield</span>
               <span className="text-[11px] opacity-40">by Rostel High-Tech</span>
             </div>
           )}

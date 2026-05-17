@@ -18,7 +18,7 @@ export default function LegalPage() {
               <Shield className="h-4 w-4 text-white" />
             </div>
             <span className="text-sm font-bold">
-              <span className="font-normal opacity-60">Rostel</span> CyberSense
+              <span className="font-normal opacity-60">Rox</span>Shield
             </span>
           </Link>
           <Link href="/">
@@ -59,8 +59,8 @@ export default function LegalPage() {
               <h3 className="font-semibold text-foreground">1. {locale === "en" ? "Data Collection" : "Collecte des données"}</h3>
               <p>
                 {locale === "en"
-                  ? "Rostel CyberSense collects data necessary for the operation of the platform: name, email, professional role, training results, and phishing simulation responses. All data is collected with the explicit consent of the client organization."
-                  : "Rostel CyberSense collecte les données nécessaires au fonctionnement de la plateforme : nom, email, rôle professionnel, résultats de formation et réponses aux simulations de phishing. Toutes les données sont collectées avec le consentement explicite de l'organisation cliente."}
+                  ? "RoxShield collects data necessary for the operation of the platform: name, email, professional role, training results, and phishing simulation responses. All data is collected with the explicit consent of the client organization."
+                  : "RoxShield collecte les données nécessaires au fonctionnement de la plateforme : nom, email, rôle professionnel, résultats de formation et réponses aux simulations de phishing. Toutes les données sont collectées avec le consentement explicite de l'organisation cliente."}
               </p>
             </section>
 
@@ -115,8 +115,8 @@ export default function LegalPage() {
               <h3 className="font-semibold text-foreground">1. {locale === "en" ? "Service Description" : "Description du service"}</h3>
               <p>
                 {locale === "en"
-                  ? "Rostel CyberSense is a SaaS platform for human cybersecurity training, phishing simulation, and risk scoring. The platform is operated by Rostel High-Tech."
-                  : "Rostel CyberSense est une plateforme SaaS de formation en cybersécurité humaine, simulation de phishing et scoring de risque. La plateforme est opérée par Rostel High-Tech."}
+                  ? "RoxShield is a SaaS platform for human cybersecurity training, phishing simulation, and risk scoring. The platform is operated by Rostel High-Tech."
+                  : "RoxShield est une plateforme SaaS de formation en cybersécurité humaine, simulation de phishing et scoring de risque. La plateforme est opérée par Rostel High-Tech."}
               </p>
             </section>
 
@@ -142,8 +142,8 @@ export default function LegalPage() {
               <h3 className="font-semibold text-foreground">4. {locale === "en" ? "Intellectual Property" : "Propriété intellectuelle"}</h3>
               <p>
                 {locale === "en"
-                  ? "All content, designs, and algorithms within CyberSense are the property of Rostel High-Tech. Client data remains the property of the client organization."
-                  : "Tout le contenu, designs et algorithmes au sein de CyberSense sont la propriété de Rostel High-Tech. Les données client restent la propriété de l'organisation cliente."}
+                  ? "All content, designs, and algorithms within RoxShield are the property of Rostel High-Tech. Client data remains the property of the client organization."
+                  : "Tout le contenu, designs et algorithmes au sein de RoxShield sont la propriété de Rostel High-Tech. Les données client restent la propriété de l'organisation cliente."}
               </p>
             </section>
 

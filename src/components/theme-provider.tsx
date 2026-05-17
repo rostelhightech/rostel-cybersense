@@ -6,11 +6,13 @@ import { CommandPalette } from "@/components/command-palette";
 import { KeyboardShortcuts } from "@/components/keyboard-shortcuts";
 import { BackToTop } from "@/components/back-to-top";
 import { ScrollProgress } from "@/components/scroll-progress";
+import { SkipToContent } from "@/components/skip-to-content";
 
 export function ThemeProvider({ children }: { children: React.ReactNode }) {
   return (
     <NextThemesProvider attribute="class" defaultTheme="dark" enableSystem={false}>
       <I18nProvider>
+        <SkipToContent />
         {children}
         <CommandPalette />
         <KeyboardShortcuts />

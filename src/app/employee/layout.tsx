@@ -173,9 +173,33 @@ export default function EmployeeLayout({ children }: { children: React.ReactNode
         </div>
       </aside>
 
-      <main className={`flex-1 pt-14 md:pt-0 transition-all duration-300 ${collapsed ? "md:ml-[70px]" : "md:ml-[260px]"}`}>
+      <main
+        id="main-content"
+        className={`flex-1 pt-14 pb-16 md:pb-0 md:pt-0 transition-all duration-300 ${collapsed ? "md:ml-[70px]" : "md:ml-[260px]"}`}
+      >
         <PageTransition>{children}</PageTransition>
       </main>
+
+      {/* Mobile bottom tab bar */}
+      <nav className="fixed bottom-0 left-0 right-0 z-50 flex h-16 items-center justify-around border-t border-sidebar-border bg-sidebar text-sidebar-foreground md:hidden">
+        {navItems.map((item) => {
+          const isActive =
+            pathname === item.href ||
+            (item.href !== "/employee" && pathname.startsWith(item.href));
+          return (
+            <Link
+              key={item.href}
+              href={item.href}
+              className={`flex flex-col items-center gap-0.5 px-2 py-1 text-[10px] transition-colors ${
+                isActive ? "text-cyber-green" : "opacity-50"
+              }`}
+            >
+              <item.icon className="h-5 w-5" />
+              <span className="truncate max-w-[56px]">{item.label}</span>
+            </Link>
+          );
+        })}
+      </nav>
     </div>
   );
 }

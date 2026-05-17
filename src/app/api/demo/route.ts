@@ -1,13 +1,22 @@
 import { NextResponse } from "next/server";
 import { Resend } from "resend";
 
-const resend = new Resend(process.env.RESEND_API_KEY);
 const TO_EMAIL = process.env.CONTACT_EMAIL || "contact@rostelhightech.com";
 
 export async function POST(request: Request) {
   try {
     const body = await request.json();
     const { name, email, organization, phone, teamSize, country, message } = body;
+
+    const apiKey = process.env.RESEND_API_KEY;
+    if (!apiKey) {
+      return NextResponse.json(
+        { error: "Service email non configuré" },
+        { status: 503 }
+      );
+    }
+
+    const resend = new Resend(apiKey);
 
     if (!name || !email || !organization) {
       return NextResponse.json(

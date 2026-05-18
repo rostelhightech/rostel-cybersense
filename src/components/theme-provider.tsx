@@ -1,6 +1,7 @@
 "use client";
 
 import { ThemeProvider as NextThemesProvider } from "next-themes";
+import { SessionProvider } from "next-auth/react";
 import { I18nProvider } from "@/lib/i18n";
 import { CommandPalette } from "@/components/command-palette";
 import { KeyboardShortcuts } from "@/components/keyboard-shortcuts";
@@ -12,17 +13,19 @@ import { SessionTimeout } from "@/components/session-timeout";
 
 export function ThemeProvider({ children }: { children: React.ReactNode }) {
   return (
-    <NextThemesProvider attribute="class" defaultTheme="dark" enableSystem={false}>
-      <I18nProvider>
-        <SkipToContent />
-        {children}
-        <CommandPalette />
-        <KeyboardShortcuts />
-        <BackToTop />
-        <ScrollProgress />
-        <NetworkStatus />
-        <SessionTimeout />
-      </I18nProvider>
-    </NextThemesProvider>
+    <SessionProvider>
+      <NextThemesProvider attribute="class" defaultTheme="dark" enableSystem={false}>
+        <I18nProvider>
+          <SkipToContent />
+          {children}
+          <CommandPalette />
+          <KeyboardShortcuts />
+          <BackToTop />
+          <ScrollProgress />
+          <NetworkStatus />
+          <SessionTimeout />
+        </I18nProvider>
+      </NextThemesProvider>
+    </SessionProvider>
   );
 }

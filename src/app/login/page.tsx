@@ -2,7 +2,8 @@
 
 import { useState, useEffect, useRef, useCallback } from "react";
 import { useRouter } from "next/navigation";
-import { Shield, Eye, EyeOff, Lock, Mail, Crown, Building2, UserCircle } from "lucide-react";
+import { signIn } from "next-auth/react";
+import { Shield, Eye, EyeOff, Lock, Mail, Crown, Building2, UserCircle, AlertCircle } from "lucide-react";
 import { FaApple, FaGoogle, FaXTwitter } from "react-icons/fa6";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -203,18 +204,21 @@ function HexagonIcon() {
 const demoRoles = [
   {
     id: "super-admin", label: "Super Admin", sub: "Rostel High-Tech", icon: Crown, route: "/admin",
+    email: "admin@rostelhightech.com", password: "admin2024!",
     active: "border-rht-orange/40 bg-rht-orange/10",
     iconActive: "bg-rht-orange/20", iconColor: "text-rht-orange",
     radio: "border-rht-orange bg-rht-orange",
   },
   {
     id: "admin-client", label: "Admin Client", sub: "Safi Sénégal SARL", icon: Building2, route: "/dashboard",
+    email: "f.sow@safisenegal.com", password: "demo1234",
     active: "border-rht-violet-light/40 bg-rht-violet-light/10",
     iconActive: "bg-rht-violet-light/20", iconColor: "text-rht-violet-light",
     radio: "border-rht-violet-light bg-rht-violet-light",
   },
   {
     id: "employee", label: "Employé", sub: "Mon espace", icon: UserCircle, route: "/employee",
+    email: "a.diallo@safisenegal.com", password: "demo1234",
     active: "border-cyber-green/40 bg-cyber-green/10",
     iconActive: "bg-cyber-green/20", iconColor: "text-cyber-green",
     radio: "border-cyber-green bg-cyber-green",
@@ -225,13 +229,42 @@ export default function LoginPage() {
   const router = useRouter();
   const [showPassword, setShowPassword] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState("");
   const [selectedRole, setSelectedRole] = useState("admin-client");
+  const [email, setEmail] = useState("f.sow@safisenegal.com");
+  const [password, setPassword] = useState("demo1234");
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const selectRole = (roleId: string) => {
+    setSelectedRole(roleId);
+    const role = demoRoles.find((r) => r.id === roleId);
+    if (role) {
+      setEmail(role.email);
+      setPassword(role.password);
+    }
+    setError("");
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsLoading(true);
+    setError("");
+
     const role = demoRoles.find((r) => r.id === selectedRole);
-    setTimeout(() => router.push(role?.route || "/dashboard"), 800);
+
+    const result = await signIn("credentials", {
+      email,
+      password,
+      redirect: false,
+    });
+
+    if (result?.error) {
+      setError("Email ou mot de passe incorrect");
+      setIsLoading(false);
+      return;
+    }
+
+    router.push(role?.route || "/dashboard");
+    router.refresh();
   };
 
   return (
@@ -304,7 +337,8 @@ export default function LoginPage() {
                   id="email"
                   type="email"
                   placeholder="votre@email.com"
-                  defaultValue="f.sow@safisenegal.com"
+                  value={email}
+                  onChange={(e) => { setEmail(e.target.value); setError(""); }}
                   className="h-11 border-white/[0.08] bg-white/[0.04] pl-10 text-white placeholder:text-white/20 focus:border-rht-violet/40 focus:ring-rht-violet/20"
                 />
               </div>
@@ -321,7 +355,8 @@ export default function LoginPage() {
                   id="password"
                   type={showPassword ? "text" : "password"}
                   placeholder="••••••••"
-                  defaultValue="demo1234"
+                  value={password}
+                  onChange={(e) => { setPassword(e.target.value); setError(""); }}
                   className="h-11 border-white/[0.08] bg-white/[0.04] pl-10 pr-10 text-white placeholder:text-white/20 focus:border-rht-violet/40 focus:ring-rht-violet/20"
                 />
                 <button
@@ -333,6 +368,17 @@ export default function LoginPage() {
                 </button>
               </div>
             </div>
+
+            {error && (
+              <motion.div
+                initial={{ opacity: 0, y: -5 }}
+                animate={{ opacity: 1, y: 0 }}
+                className="flex items-center gap-2 rounded-lg border border-red-500/20 bg-red-500/10 px-3 py-2 text-sm text-red-400"
+              >
+                <AlertCircle className="h-4 w-4 shrink-0" />
+                {error}
+              </motion.div>
+            )}
 
             <motion.div whileHover={{ scale: 1.01 }} whileTap={{ scale: 0.99 }} className="pt-2">
               <Button
@@ -371,7 +417,7 @@ export default function LoginPage() {
                   type="button"
                   whileHover={{ scale: 1.01 }}
                   whileTap={{ scale: 0.99 }}
-                  onClick={() => setSelectedRole(role.id)}
+                  onClick={() => selectRole(role.id)}
                   className={`flex w-full items-center gap-3 rounded-xl border p-3 text-left transition-all duration-200 ${
                     isActive
                       ? role.active

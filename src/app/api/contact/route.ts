@@ -1,17 +1,39 @@
 import { NextResponse } from "next/server";
 import { Resend } from "resend";
+import { rateLimit } from "@/lib/rate-limit";
 
 const TO_EMAIL = process.env.CONTACT_EMAIL || "contact@rostelhightech.com";
 
+function sanitize(str: string) {
+  return str.replace(/[<>]/g, "").trim().slice(0, 1000);
+}
+
+function isValidEmail(email: string) {
+  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email) && email.length <= 254;
+}
+
 export async function POST(request: Request) {
   try {
+    // Rate limit: 5 requests per minute per IP
+    const ip = request.headers.get("x-forwarded-for")?.split(",")[0] ?? "unknown";
+    const { success } = rateLimit(ip, { maxRequests: 5, windowMs: 60_000 });
+    if (!success) {
+      return NextResponse.json(
+        { error: "Trop de requetes. Reessayez dans une minute." },
+        { status: 429 }
+      );
+    }
+
     const body = await request.json();
-    const { name, email, subject, message } = body;
+    const name = sanitize(body.name || "");
+    const email = sanitize(body.email || "");
+    const subject = sanitize(body.subject || "");
+    const message = sanitize(body.message || "");
 
     const apiKey = process.env.RESEND_API_KEY;
     if (!apiKey) {
       return NextResponse.json(
-        { error: "Service email non configuré" },
+        { error: "Service email non configure" },
         { status: 503 }
       );
     }
@@ -21,6 +43,13 @@ export async function POST(request: Request) {
     if (!name || !email || !message) {
       return NextResponse.json(
         { error: "Champs requis manquants" },
+        { status: 400 }
+      );
+    }
+
+    if (!isValidEmail(email)) {
+      return NextResponse.json(
+        { error: "Adresse email invalide" },
         { status: 400 }
       );
     }
